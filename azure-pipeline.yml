@@ -1,0 +1,38 @@
+trigger:
+- main
+
+pr:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.11'
+  displayName: 'Use Python 3.11'
+
+- script: |
+    python -m pip install --upgrade pip
+    pip install -e .[dev]
+    pip install pyright
+  displayName: 'Install dependencies'
+
+- script: ruff check .
+  displayName: 'Ruff lint'
+
+- script: ruff format --check .
+  displayName: 'Ruff format check'
+
+- script: pyright
+  displayName: 'Pyright'
+
+- script: pylint src/app
+  displayName: 'Pylint'
+
+- script: pytest
+  displayName: 'Pytest'
+
+- script: docker build --target runtime -t myapp-runtime .
+  displayName: 'Build runtime image'
