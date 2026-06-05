@@ -1,0 +1,45 @@
+{
+  "File header": {
+    "prefix": "fileheader",
+    "body": [
+      "${LINE_COMMENT} ---------------------------------------------------------------------------",
+      "${LINE_COMMENT}",
+      "${LINE_COMMENT} File: ${TM_FILENAME}",
+      "${LINE_COMMENT} Component: ${1:ComponentName}",
+      "${LINE_COMMENT} Brief: ${2:Short description}",
+      "${LINE_COMMENT} Author: ${3:${TM_USERNAME}}",
+      "${LINE_COMMENT} Created: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+      "${LINE_COMMENT} ---------------------------------------------------------------------------",
+      "$0"
+    ],
+    "description": "Generic file header"
+  },
+  "TODO with ticket": {
+    "prefix": "todo-ticket",
+    "body": [
+      "# TODO(${1:PROJ-123}): ${2:message}"
+    ],
+    "description": "Insert a TODO with a ticket reference"
+  },
+  "FIXME with ticket": {
+    "prefix": "fixme-ticket",
+    "body": [
+      "# FIXME(${1:PROJ-123}): ${2:message}"
+    ],
+    "description": "Insert a FIXME with a ticket reference"
+  },
+  "Requirement reference": {
+    "prefix": "req",
+    "body": [
+      "# Requirement: ${1:REQ-123}"
+    ],
+    "description": "Insert a requirement reference"
+  },
+  "Ticket reference": {
+    "prefix": "ticket",
+    "body": [
+      "# Ref: ${1:PROJ-123}"
+    ],
+    "description": "Insert a plain ticket reference"
+  }
+}
